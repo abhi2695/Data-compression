@@ -1,0 +1,60 @@
+head	1.2;
+access;
+symbols;
+locks
+	abhi:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2017.07.03.16.56.33;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.03.16.47.48;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@This function checks the code lenth of the value and return a an appropiate value so tha function can be called
+@
+
+
+1.2
+log
+@se
+@
+text
+@#include"header.h"
+#include"declaration.h"
+
+int Code_length(int ndc)
+{
+	if(ndc<4)
+		return 2;
+	else if(ndc<8)
+		return 3;
+	else if(ndc<16)
+		return 4;
+	else if(ndc<32)
+		return 5;
+	else if(ndc<64)
+		return 6;
+	else if(ndc<128)
+		return 7;
+		
+}	
+		
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a18 1
+return 0;
+@

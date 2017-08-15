@@ -1,0 +1,8 @@
+#! /bin/bash
+today=`date +%y%m%d`
+for file in $(ls *.h) $(ls *.c)
+	do
+		
+		rlog $file >> logfile1.$today 
+		
+	done

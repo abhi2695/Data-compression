@@ -1,0 +1,880 @@
+head	1.39;
+access;
+symbols;
+locks
+	abhi:1.39; strict;
+comment	@ * @;
+
+
+1.39
+date	2017.08.13.05.23.56;	author abhi;	state Exp;
+branches;
+next	1.38;
+
+1.38
+date	2017.07.27.17.47.18;	author abhi;	state Exp;
+branches;
+next	1.37;
+
+1.37
+date	2017.07.24.07.51.50;	author abhi;	state Exp;
+branches;
+next	1.36;
+
+1.36
+date	2017.07.15.16.42.03;	author abhi;	state Exp;
+branches;
+next	1.35;
+
+1.35
+date	2017.07.12.16.08.30;	author abhi;	state Exp;
+branches;
+next	1.34;
+
+1.34
+date	2017.07.12.06.49.50;	author abhi;	state Exp;
+branches;
+next	1.33;
+
+1.33
+date	2017.07.11.17.44.46;	author abhi;	state Exp;
+branches;
+next	1.32;
+
+1.32
+date	2017.07.11.17.39.53;	author abhi;	state Exp;
+branches;
+next	1.31;
+
+1.31
+date	2017.07.11.17.38.58;	author abhi;	state Exp;
+branches;
+next	1.30;
+
+1.30
+date	2017.07.11.17.28.57;	author abhi;	state Exp;
+branches;
+next	1.29;
+
+1.29
+date	2017.07.11.17.25.13;	author abhi;	state Exp;
+branches;
+next	1.28;
+
+1.28
+date	2017.07.11.17.05.31;	author abhi;	state Exp;
+branches;
+next	1.27;
+
+1.27
+date	2017.07.10.06.05.14;	author abhi;	state Exp;
+branches;
+next	1.26;
+
+1.26
+date	2017.07.10.05.56.53;	author abhi;	state Exp;
+branches;
+next	1.25;
+
+1.25
+date	2017.07.10.05.32.24;	author abhi;	state Exp;
+branches;
+next	1.24;
+
+1.24
+date	2017.07.07.12.25.50;	author abhi;	state Exp;
+branches;
+next	1.23;
+
+1.23
+date	2017.07.07.12.24.04;	author abhi;	state Exp;
+branches;
+next	1.22;
+
+1.22
+date	2017.07.07.12.20.38;	author abhi;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2017.07.07.06.47.17;	author abhi;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2017.07.07.06.14.22;	author abhi;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2017.07.06.06.46.30;	author abhi;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2017.07.06.06.44.52;	author abhi;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2017.07.06.06.33.36;	author abhi;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2017.07.06.04.59.50;	author abhi;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2017.07.05.07.20.05;	author abhi;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2017.07.05.06.45.05;	author abhi;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2017.07.05.06.43.33;	author abhi;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.07.05.06.41.36;	author abhi;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.07.05.06.41.12;	author abhi;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.07.05.06.38.08;	author abhi;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.07.05.06.37.03;	author abhi;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.07.05.06.34.25;	author abhi;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.07.05.06.33.47;	author abhi;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.04.17.25.17;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.04.17.23.12;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.04.17.18.37;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.04.17.05.52;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.04.16.39.10;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.03.16.49.10;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.39
+log
+@remove print statment
+@
+text
+@#include"header.h"
+#include"declaration.h"
+
+int Compression4(int fd,char* ma)
+{
+	printf("%s: Begins\n",__func__);
+	unsigned char c,byt; char ch;
+	int cfd,efd,i,ret;
+	int (*Openfileptr)(char*);
+	Openfileptr=Open_File;
+	int (*Findindexptr)(char,char*);
+	Findindexptr=Find_Index;
+	printf("opening Compressed file\n");
+	cfd=Openfileptr("O_RDWR");
+	printf("open Encryption file\n");
+	efd=Openfileptr("O_WRONLY");
+	
+	while(1)
+	{
+		
+		byt=byt^byt;
+		c=c^c;
+		
+		ret=read(fd,&ch,1);
+
+		if(ret==0)
+			break;
+		i=Findindexptr(ch,ma);
+		printf("%d\n",i);		
+		c=(char)i;
+		c=c<<4;
+	
+		byt=byt|c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0X0F;	
+			write(cfd,&byt,1);		
+			break;
+		}
+		i=Findindexptr(ch,ma);
+		printf("%d\n",i);		
+		c=(char)i;
+		
+		c=c<<4;
+		c=c>>4;
+		
+		byt=byt|c;
+		
+		write(cfd,&byt,1);	
+	}
+		
+		write(efd,ma,strlen(ma));
+		
+	
+	printf("%s: Ends\n",__func__);
+	
+	close(efd);
+	return cfd;
+}
+@
+
+
+1.38
+log
+@change eof
+@
+text
+@a24 1
+		printf("chracter is %c \n",ch);
+a29 1
+	//	sprintf(&c,"%d",i);
+a35 1
+		printf("chracter is %c \n",ch);
+a43 1
+		//sprintf(&c,"%d",i);
+@
+
+
+1.37
+log
+@se
+@
+text
+@d8 1
+a8 1
+	int cfd,efd,i;
+d24 1
+a24 1
+		read(fd,&ch,1);
+d27 1
+a27 1
+		if(ch==10)
+d37 1
+a37 1
+		read(fd,&ch,1);
+d39 1
+a39 1
+		if(ch==10)
+@
+
+
+1.36
+log
+@Change in Printf statment
+@
+text
+@d14 1
+a14 1
+	cfd=Openfileptr("O_WRONLY");
+d62 1
+a62 1
+	close(cfd);
+d64 1
+@
+
+
+1.35
+log
+@changed sprintf to char
+@
+text
+@d6 1
+d61 1
+@
+
+
+1.34
+log
+@change all datatype to unsigned
+@
+text
+@d6 2
+a7 2
+	unsigned char c, ch,byt;
+	unsigned int cfd,efd,i;
+d29 3
+a31 2
+		//printf("%d\n",i);		
+		sprintf(&c,"%d",i);
+d45 3
+a47 1
+		sprintf(&c,"%d",i);
+@
+
+
+1.33
+log
+@se
+@
+text
+@d6 2
+a7 2
+	unsigned char c; char ch,byt;
+	int cfd,efd,i;
+@
+
+
+1.32
+log
+@se
+@
+text
+@d50 1
+a50 8
+		while(byt)
+		{
+			if(byt&1)
+				printf("1");
+			else
+			printf("0");
+			byt<<=1;
+		}	
+@
+
+
+1.31
+log
+@testing the bits
+@
+text
+@d56 1
+a56 1
+			byt>>=1;
+@
+
+
+1.30
+log
+@se
+@
+text
+@d50 8
+a57 1
+		
+@
+
+
+1.29
+log
+@added new functon ptr
+@
+text
+@d6 1
+a6 1
+	unsigned char byt,c; char ch;
+@
+
+
+1.28
+log
+@Changed the char to unsigned char
+@
+text
+@d8 4
+d13 1
+a13 1
+	cfd=Open_File("O_WRONLY");
+d15 1
+a15 1
+	efd=Open_File("O_WRONLY");
+d28 1
+a28 1
+		i=Find_Index(ch,ma);
+d43 1
+a43 1
+		i=Find_Index(ch,ma);
+@
+
+
+1.27
+log
+@se
+..
+@
+text
+@d6 1
+a6 1
+	char byt,c,ch;
+@
+
+
+1.26
+log
+@changed c to array
+@
+text
+@d6 1
+a6 1
+	char byt,c[1],ch;
+d17 1
+a17 1
+		c[0]=c[0]^c[0];
+d27 1
+a27 1
+		c[0]=c[0]<<4;
+d29 1
+a29 1
+		byt=byt|c[0];
+d42 2
+a43 2
+		c[0]=c[0]<<4;
+		c[0]=c[0]>>4;
+d45 1
+a45 1
+		byt=byt|c[0];
+@
+
+
+1.25
+log
+@se
+@
+text
+@d6 1
+a6 1
+	char byt,c,ch;
+d17 1
+a17 1
+		c=c^c;
+d27 1
+a27 1
+		c=c<<4;
+d29 1
+a29 1
+		byt=byt|c;
+d35 1
+a35 1
+			byt|=EOF;	
+d42 2
+a43 2
+		c=c<<4;
+		c=c>>4;
+d45 1
+a45 1
+		byt=byt|c;
+@
+
+
+1.24
+log
+@se
+@
+text
+@d35 1
+a35 1
+			byt|=0X0F;	
+@
+
+
+1.23
+log
+@se
+@
+text
+@d28 1
+a28 8
+		while(1)
+		{	
+			if(c & 1)
+				printf("1");
+			else
+				printf("0");
+			c<<=1;
+		}	
+@
+
+
+1.22
+log
+@se
+@
+text
+@d30 1
+a30 1
+			if(c&1)
+d34 1
+a34 1
+			c>>=1;
+@
+
+
+1.21
+log
+@added write fx in if statmnet
+@
+text
+@d28 8
+a35 1
+		
+@
+
+
+1.20
+log
+@change the called function name
+@
+text
+@d36 1
+@
+
+
+1.19
+log
+@se
+@
+text
+@d7 1
+a7 1
+	int cfd,efd,i,j;
+d9 1
+a9 1
+	cfd=Open_Filew();
+d11 2
+a12 1
+	efd=Open_Filew();
+a14 2
+		if(ch==10)
+			break;
+d22 2
+d33 5
+a46 4
+		printf("%c\n",byt);
+
+		write(efd,(ma+j),1);
+		j++;
+d48 4
+@
+
+
+1.18
+log
+@Write ma into ek
+@
+text
+@d7 1
+a7 1
+	int cfd,efd,i;
+d43 2
+a44 2
+		write(efd,ma,1);
+		
+@
+
+
+1.17
+log
+@close file
+@
+text
+@d42 3
+@
+
+
+1.16
+log
+@se
+@
+text
+@d6 1
+a6 1
+	char byt,c,ch,buffer[33];
+d43 2
+a44 1
+
+@
+
+
+1.15
+log
+@se
+@
+text
+@d3 1
+a3 2
+#include<stdio.h>
+#include<stdlib.h>
+d27 1
+a27 2
+		itoa (c,buffer,2);
+		printf("%s\n",buffer);		
+d37 1
+a37 2
+		itoa (c,buffer,2);
+		printf("%s\n",buffer);		
+d40 2
+a41 5
+		write(cfd,&byt,1);
+
+		itoa (byt,buffer,2);
+		printf("%s\n",buffer);		
+	
+@
+
+
+1.14
+log
+@se
+@
+text
+@d3 2
+d7 1
+a7 1
+	char byt,c,ch;
+d28 2
+d31 1
+a31 1
+
+d36 1
+d39 2
+d45 2
+a46 12
+		while(byt)
+		{
+			if(byt & 1)
+				printf("1");
+			else
+			{
+				printf("0");
+			}
+			byt>>=1;
+		}		
+		printf("\n");
+
+@
+
+
+1.13
+log
+@se
+@
+text
+@d46 1
+a46 1
+			byt<<=1;
+@
+
+
+1.12
+log
+@se
+@
+text
+@d43 1
+d45 2
+a46 1
+			byt>>=1;
+@
+
+
+1.11
+log
+@se
+@
+text
+@d46 1
+a46 1
+		printf("\n');
+@
+
+
+1.10
+log
+@se
+@
+text
+@d44 1
+a44 1
+			byt=byt>>1;
+d46 1
+a46 1
+		
+@
+
+
+1.9
+log
+@se
+@
+text
+@d38 1
+a38 1
+		while(byt);
+@
+
+
+1.8
+log
+@se
+@
+text
+@d40 2
+a41 2
+			if(byt&1)
+			printf("1");
+d43 1
+a43 1
+			printf("0");
+d45 1
+a45 1
+		}	
+@
+
+
+1.7
+log
+@Added a while loop to print binary values in byt
+@
+text
+@d44 1
+a44 1
+			byt=byt>>1
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d36 11
+a46 1
+		printf("ret: %c\n ",write(cfd,&byt,1));
+@
+
+
+1.5
+log
+@testing
+@
+text
+@d28 1
+a28 1
+		read(fd,&ch,2);
+d36 1
+a36 1
+		printf("ret:\n ",write(cfd,&byt,1));
+@
+
+
+1.4
+log
+@assigned an Chracter code to the index of the main array
+then store it in a chracter used left and right shift opertor and write the binary code sin compressed file
+@
+text
+@d20 1
+a20 1
+	//	printf("chracter is %c \n",ch);
+d23 1
+a23 1
+	//	printf("%d\n",i);		
+d29 1
+d36 1
+a36 1
+		write(cfd,&byt,1);
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d20 1
+a20 1
+		printf("chracter is %c \n",ch);
+d23 13
+a35 1
+		printf("%d\n",i);		
+@
+
+
+1.2
+log
+@called the function openfilew to open two files which willl store the Compressed file and encrypted file
+Reads the chracter one by one and print it
+Called the function Findindex which will find the index value of the chracter stored in main array
+and print it
+@
+text
+@d7 1
+a7 1
+	printf("opening Compressed file");
+d9 1
+a9 1
+	printf("open Encryption file");
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int Compression4()
+d5 16
+d22 2
+a23 1
+	printf("compression 4 function begins\n");
+d25 2
+a26 1
+	printf("compression 4 function ends\n");
+@

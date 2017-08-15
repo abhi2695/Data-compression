@@ -1,0 +1,61 @@
+head	1.3;
+access;
+symbols;
+locks
+	abhi:1.3; strict;
+comment	@ * @;
+
+
+1.3
+date	2017.07.04.16.52.51;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.04.16.49.03;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.06.30.16.11.20;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@This header file contain all the header files that will be used in mdc  like <stdio.h> and <stdlib.h>
+@
+
+
+1.3
+log
+@Added a new header file
+@
+text
+@#include<stdio.h>
+#  include<stdlib.h>
+#  include<string.h>
+#  include<fcntl.h>
+#include<unistd.h>
+#include<sys/types.h>
+@
+
+
+1.2
+log
+@Added a new header file
+@
+text
+@d6 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 1
+a5 1
+
+@

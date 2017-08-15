@@ -1,0 +1,1266 @@
+
+RCS file: declaration.h,v
+Working file: declaration.h
+head: 1.11
+branch:
+locks: strict
+	abhi: 1.11
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 11;	selected revisions: 11
+description:
+This header file contain all the declaration of functions used in mdc
+----------------------------
+revision 1.11	locked by: abhi;
+date: 2017/07/27 17:31:26;  author: abhi;  state: Exp;  lines: +0 -1
+*** empty log message ***
+----------------------------
+revision 1.10
+date: 2017/07/24 07:51:08;  author: abhi;  state: Exp;  lines: +3 -1
+se
+----------------------------
+revision 1.9
+date: 2017/07/11 16:58:50;  author: abhi;  state: Exp;  lines: +1 -1
+Passed an argument
+----------------------------
+revision 1.8
+date: 2017/07/11 16:23:36;  author: abhi;  state: Exp;  lines: +1 -1
+Changed the return type of display menu
+----------------------------
+revision 1.7
+date: 2017/07/07 10:45:37;  author: abhi;  state: Exp;  lines: +6 -1
+Added new function for Decompression
+----------------------------
+revision 1.6
+date: 2017/07/07 06:18:13;  author: abhi;  state: Exp;  lines: +0 -1
+Deleted the function openfilew.c
+----------------------------
+revision 1.5
+date: 2017/07/04 16:37:36;  author: abhi;  state: Exp;  lines: +8 -6
+Adde dtwo new function FindIndex and openfilew
+----------------------------
+revision 1.4
+date: 2017/07/03 16:54:24;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.3
+date: 2017/07/03 16:47:17;  author: abhi;  state: Exp;  lines: +8 -0
+Added new Codelength and Compression(2-7) function
+----------------------------
+revision 1.2
+date: 2017/07/03 09:52:06;  author: abhi;  state: Exp;  lines: +2 -1
+Added a new function master array
+changed a function name.
+----------------------------
+revision 1.1
+date: 2017/06/30 16:10:33;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: header.h,v
+Working file: header.h
+head: 1.3
+branch:
+locks: strict
+	abhi: 1.3
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 3;	selected revisions: 3
+description:
+This header file contain all the header files that will be used in mdc  like <stdio.h> and <stdlib.h>
+----------------------------
+revision 1.3	locked by: abhi;
+date: 2017/07/04 16:52:51;  author: abhi;  state: Exp;  lines: +1 -0
+Added a new header file
+----------------------------
+revision 1.2
+date: 2017/07/04 16:49:03;  author: abhi;  state: Exp;  lines: +1 -1
+Added a new header file
+----------------------------
+revision 1.1
+date: 2017/06/30 16:11:20;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Code_length.c,v
+Working file: Code_length.c
+head: 1.2
+branch:
+locks: strict
+	abhi: 1.2
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 2;	selected revisions: 2
+description:
+This function checks the code lenth of the value and return a an appropiate value so tha function can be called
+----------------------------
+revision 1.2	locked by: abhi;
+date: 2017/07/03 16:56:33;  author: abhi;  state: Exp;  lines: +0 -1
+se
+----------------------------
+revision 1.1
+date: 2017/07/03 16:47:48;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compressfurther.c,v
+Working file: Compressfurther.c
+head: 1.3
+branch:
+locks: strict
+	abhi: 1.3
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 3;	selected revisions: 3
+description:
+this funnction will further compress the Compressed file
+----------------------------
+revision 1.3	locked by: abhi;
+date: 2017/08/13 05:23:12;  author: abhi;  state: Exp;  lines: +0 -2
+remove print statment
+----------------------------
+revision 1.2
+date: 2017/07/27 17:31:37;  author: abhi;  state: Exp;  lines: +3 -2
+*** empty log message ***
+----------------------------
+revision 1.1
+date: 2017/07/24 07:51:12;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression2.c,v
+Working file: Compression2.c
+head: 1.8
+branch:
+locks: strict
+	abhi: 1.8
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 8;	selected revisions: 8
+description:
+Only prints start and end
+----------------------------
+revision 1.8	locked by: abhi;
+date: 2017/08/13 05:23:24;  author: abhi;  state: Exp;  lines: +0 -8
+remove print statment
+----------------------------
+revision 1.7
+date: 2017/07/27 17:46:55;  author: abhi;  state: Exp;  lines: +9 -9
+change the eof
+----------------------------
+revision 1.6
+date: 2017/07/24 07:51:41;  author: abhi;  state: Exp;  lines: +5 -4
+se
+----------------------------
+revision 1.5
+date: 2017/07/15 05:50:55;  author: abhi;  state: Exp;  lines: +3 -0
+added write statment in if loop
+----------------------------
+revision 1.4
+date: 2017/07/15 05:33:50;  author: abhi;  state: Exp;  lines: +2 -0
+se
+close file discriptor
+----------------------------
+revision 1.3
+date: 2017/07/15 05:15:35;  author: abhi;  state: Exp;  lines: +76 -2
+This function is used to decompresss to 2 bit code 
+cf and ef are opened in this funnction to write values in it
+in a single while loop 4 values will be read from the file and write into cf
+unique values will be stored in ef
+----------------------------
+revision 1.2
+date: 2017/07/04 16:38:31;  author: abhi;  state: Exp;  lines: +1 -1
+Passed 2 arguments
+----------------------------
+revision 1.1
+date: 2017/07/03 16:48:35;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression3.c,v
+Working file: Compression3.c
+head: 1.13
+branch:
+locks: strict
+	abhi: 1.13
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 13;	selected revisions: 13
+description:
+----------------------------
+revision 1.13	locked by: abhi;
+date: 2017/08/13 05:23:51;  author: abhi;  state: Exp;  lines: +0 -16
+remove print statment
+----------------------------
+revision 1.12
+date: 2017/07/27 17:47:12;  author: abhi;  state: Exp;  lines: +17 -17
+change eof
+----------------------------
+revision 1.11
+date: 2017/07/24 07:51:48;  author: abhi;  state: Exp;  lines: +12 -8
+se
+----------------------------
+revision 1.10
+date: 2017/07/15 16:41:43;  author: abhi;  state: Exp;  lines: +2 -2
+Change in printf statment
+----------------------------
+revision 1.9
+date: 2017/07/15 04:36:35;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.8
+date: 2017/07/15 04:35:16;  author: abhi;  state: Exp;  lines: +3 -0
+added xor statment
+----------------------------
+revision 1.7
+date: 2017/07/14 06:18:28;  author: abhi;  state: Exp;  lines: +0 -3
+se
+----------------------------
+revision 1.6
+date: 2017/07/13 17:55:08;  author: abhi;  state: Exp;  lines: +1 -0
+se
+----------------------------
+revision 1.5
+date: 2017/07/13 17:10:56;  author: abhi;  state: Exp;  lines: +9 -0
+addded print statment to print index value
+write in ef
+----------------------------
+revision 1.4
+date: 2017/07/13 17:07:04;  author: abhi;  state: Exp;  lines: +10 -1
+close the filediscriptor
+added print statment
+----------------------------
+revision 1.3
+date: 2017/07/13 16:58:51;  author: abhi;  state: Exp;  lines: +149 -1
+open 2 files cf and ef and store the data of the source file in cf in bits form
+basically shift and or operations are performed and done for 8 times 
+one while loop writes 3 times in a particular byte
+----------------------------
+revision 1.2
+date: 2017/07/04 16:38:58;  author: abhi;  state: Exp;  lines: +1 -1
+passed two Arguments .
+----------------------------
+revision 1.1
+date: 2017/07/03 16:48:57;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression4.c,v
+Working file: Compression4.c
+head: 1.39
+branch:
+locks: strict
+	abhi: 1.39
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 39;	selected revisions: 39
+description:
+----------------------------
+revision 1.39	locked by: abhi;
+date: 2017/08/13 05:23:56;  author: abhi;  state: Exp;  lines: +0 -4
+remove print statment
+----------------------------
+revision 1.38
+date: 2017/07/27 17:47:18;  author: abhi;  state: Exp;  lines: +5 -5
+change eof
+----------------------------
+revision 1.37
+date: 2017/07/24 07:51:50;  author: abhi;  state: Exp;  lines: +3 -2
+se
+----------------------------
+revision 1.36
+date: 2017/07/15 16:42:03;  author: abhi;  state: Exp;  lines: +2 -0
+Change in Printf statment
+----------------------------
+revision 1.35
+date: 2017/07/12 16:08:30;  author: abhi;  state: Exp;  lines: +8 -5
+changed sprintf to char
+----------------------------
+revision 1.34
+date: 2017/07/12 06:49:50;  author: abhi;  state: Exp;  lines: +2 -2
+change all datatype to unsigned
+----------------------------
+revision 1.33
+date: 2017/07/11 17:44:46;  author: abhi;  state: Exp;  lines: +1 -8
+se
+----------------------------
+revision 1.32
+date: 2017/07/11 17:39:53;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.31
+date: 2017/07/11 17:38:58;  author: abhi;  state: Exp;  lines: +8 -1
+testing the bits
+----------------------------
+revision 1.30
+date: 2017/07/11 17:28:57;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.29
+date: 2017/07/11 17:25:13;  author: abhi;  state: Exp;  lines: +8 -4
+added new functon ptr
+----------------------------
+revision 1.28
+date: 2017/07/11 17:05:31;  author: abhi;  state: Exp;  lines: +1 -1
+Changed the char to unsigned char
+----------------------------
+revision 1.27
+date: 2017/07/10 06:05:14;  author: abhi;  state: Exp;  lines: +7 -7
+se
+..
+----------------------------
+revision 1.26
+date: 2017/07/10 05:56:53;  author: abhi;  state: Exp;  lines: +8 -8
+changed c to array
+----------------------------
+revision 1.25
+date: 2017/07/10 05:32:24;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.24
+date: 2017/07/07 12:25:50;  author: abhi;  state: Exp;  lines: +1 -8
+se
+----------------------------
+revision 1.23
+date: 2017/07/07 12:24:04;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.22
+date: 2017/07/07 12:20:38;  author: abhi;  state: Exp;  lines: +8 -1
+se
+----------------------------
+revision 1.21
+date: 2017/07/07 06:47:17;  author: abhi;  state: Exp;  lines: +1 -0
+added write fx in if statmnet
+----------------------------
+revision 1.20
+date: 2017/07/07 06:14:22;  author: abhi;  state: Exp;  lines: +15 -9
+change the called function name
+----------------------------
+revision 1.19
+date: 2017/07/06 06:46:30;  author: abhi;  state: Exp;  lines: +3 -3
+se
+----------------------------
+revision 1.18
+date: 2017/07/06 06:44:52;  author: abhi;  state: Exp;  lines: +3 -0
+Write ma into ek
+----------------------------
+revision 1.17
+date: 2017/07/06 06:33:36;  author: abhi;  state: Exp;  lines: +3 -2
+close file
+----------------------------
+revision 1.16
+date: 2017/07/06 04:59:50;  author: abhi;  state: Exp;  lines: +5 -11
+se
+----------------------------
+revision 1.15
+date: 2017/07/05 07:20:05;  author: abhi;  state: Exp;  lines: +11 -14
+se
+----------------------------
+revision 1.14
+date: 2017/07/05 06:45:05;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.13
+date: 2017/07/05 06:43:33;  author: abhi;  state: Exp;  lines: +3 -1
+se
+----------------------------
+revision 1.12
+date: 2017/07/05 06:41:36;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.11
+date: 2017/07/05 06:41:12;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.10
+date: 2017/07/05 06:38:08;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.9
+date: 2017/07/05 06:37:03;  author: abhi;  state: Exp;  lines: +4 -4
+se
+----------------------------
+revision 1.8
+date: 2017/07/05 06:34:25;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.7
+date: 2017/07/05 06:33:47;  author: abhi;  state: Exp;  lines: +11 -1
+Added a while loop to print binary values in byt
+----------------------------
+revision 1.6
+date: 2017/07/04 17:25:17;  author: abhi;  state: Exp;  lines: +2 -2
+*** empty log message ***
+----------------------------
+revision 1.5
+date: 2017/07/04 17:23:12;  author: abhi;  state: Exp;  lines: +4 -3
+testing
+----------------------------
+revision 1.4
+date: 2017/07/04 17:18:37;  author: abhi;  state: Exp;  lines: +14 -2
+assigned an Chracter code to the index of the main array
+then store it in a chracter used left and right shift opertor and write the binary code sin compressed file
+----------------------------
+revision 1.3
+date: 2017/07/04 17:05:52;  author: abhi;  state: Exp;  lines: +2 -2
+*** empty log message ***
+----------------------------
+revision 1.2
+date: 2017/07/04 16:39:10;  author: abhi;  state: Exp;  lines: +21 -3
+called the function openfilew to open two files which willl store the Compressed file and encrypted file
+Reads the chracter one by one and print it
+Called the function Findindex which will find the index value of the chracter stored in main array
+and print it
+----------------------------
+revision 1.1
+date: 2017/07/03 16:49:10;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression5.c,v
+Working file: Compression5.c
+head: 1.13
+branch:
+locks: strict
+	abhi: 1.13
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 13;	selected revisions: 13
+description:
+----------------------------
+revision 1.13	locked by: abhi;
+date: 2017/08/13 05:28:39;  author: abhi;  state: Exp;  lines: +0 -1
+remove print statment
+----------------------------
+revision 1.12
+date: 2017/08/13 05:24:01;  author: abhi;  state: Exp;  lines: +1 -17
+remove print statment
+----------------------------
+revision 1.11
+date: 2017/07/27 17:47:24;  author: abhi;  state: Exp;  lines: +17 -17
+change eof
+----------------------------
+revision 1.10
+date: 2017/07/24 07:51:53;  author: abhi;  state: Exp;  lines: +23 -14
+se
+----------------------------
+revision 1.9
+date: 2017/07/21 16:08:29;  author: abhi;  state: Exp;  lines: +1 -1
+*** empty log message ***
+----------------------------
+revision 1.8
+date: 2017/07/16 10:31:00;  author: abhi;  state: Exp;  lines: +0 -1
+*** empty log message ***
+----------------------------
+revision 1.7
+date: 2017/07/15 15:58:59;  author: abhi;  state: Exp;  lines: +1 -0
+se
+----------------------------
+revision 1.6
+date: 2017/07/15 07:53:54;  author: abhi;  state: Exp;  lines: +5 -4
+se
+----------------------------
+revision 1.5
+date: 2017/07/15 07:43:20;  author: abhi;  state: Exp;  lines: +8 -8
+se
+----------------------------
+revision 1.4
+date: 2017/07/15 07:37:07;  author: abhi;  state: Exp;  lines: +0 -2
+se
+----------------------------
+revision 1.3
+date: 2017/07/15 07:26:31;  author: abhi;  state: Exp;  lines: +188 -2
+compress the file having more than 15 distinct chracter
+open CF and EF in write mode write the data from file in compressed format in cf and Ekey in Ef
+in a single cycle of while loop 8 times file is read and 5 times file is write
+----------------------------
+revision 1.2
+date: 2017/07/04 16:41:56;  author: abhi;  state: Exp;  lines: +1 -1
+passed two arguments
+----------------------------
+revision 1.1
+date: 2017/07/03 16:49:11;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression6.c,v
+Working file: Compression6.c
+head: 1.8
+branch:
+locks: strict
+	abhi: 1.8
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 8;	selected revisions: 8
+description:
+----------------------------
+revision 1.8	locked by: abhi;
+date: 2017/08/13 05:24:06;  author: abhi;  state: Exp;  lines: +0 -5
+remove print statment
+----------------------------
+revision 1.7
+date: 2017/07/27 17:47:29;  author: abhi;  state: Exp;  lines: +9 -9
+change eof
+----------------------------
+revision 1.6
+date: 2017/07/24 07:51:55;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.5
+date: 2017/07/16 02:45:40;  author: abhi;  state: Exp;  lines: +3 -1
+added xor statment
+----------------------------
+revision 1.4
+date: 2017/07/15 16:54:43;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.3
+date: 2017/07/15 16:42:15;  author: abhi;  state: Exp;  lines: +98 -2
+this function is used to compress 64 bit code
+in a single while 4 values are read from sourcefile and 3 times write into cf
+----------------------------
+revision 1.2
+date: 2017/07/04 16:42:12;  author: abhi;  state: Exp;  lines: +1 -1
+Passed two arguments
+----------------------------
+revision 1.1
+date: 2017/07/03 16:49:12;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression7.c,v
+Working file: Compression7.c
+head: 1.7
+branch:
+locks: strict
+	abhi: 1.7
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 7;	selected revisions: 7
+description:
+----------------------------
+revision 1.7	locked by: abhi;
+date: 2017/08/13 05:24:12;  author: abhi;  state: Exp;  lines: +0 -17
+remove print statment
+----------------------------
+revision 1.6
+date: 2017/07/27 17:31:56;  author: abhi;  state: Exp;  lines: +18 -17
+change the eof
+----------------------------
+revision 1.5
+date: 2017/07/24 07:51:57;  author: abhi;  state: Exp;  lines: +3 -2
+se
+----------------------------
+revision 1.4
+date: 2017/07/16 09:46:30;  author: abhi;  state: Exp;  lines: +6 -6
+s
+logical errors
+----------------------------
+revision 1.3
+date: 2017/07/16 04:24:18;  author: abhi;  state: Exp;  lines: +201 -2
+this function compressses the 128 bit code 
+in a single while loop 8 time value is read from sourcee file and 7 times written into cf
+----------------------------
+revision 1.2
+date: 2017/07/04 16:42:24;  author: abhi;  state: Exp;  lines: +1 -1
+Passed two arguments
+----------------------------
+revision 1.1
+date: 2017/07/03 16:49:13;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Compression.c,v
+Working file: Compression.c
+head: 1.22
+branch:
+locks: strict
+	abhi: 1.22
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 22;	selected revisions: 22
+description:
+This file is used for compression .It reads the chracter one by one from a file if the chracter is repated then it is not stored in main array
+Basically it checks the uniquness of the chracter
+----------------------------
+revision 1.22	locked by: abhi;
+date: 2017/08/13 05:26:59;  author: abhi;  state: Exp;  lines: +0 -1
+remove print statment
+----------------------------
+revision 1.21
+date: 2017/08/13 05:24:17;  author: abhi;  state: Exp;  lines: +0 -3
+remove print statment
+----------------------------
+revision 1.20
+date: 2017/07/24 07:52:00;  author: abhi;  state: Exp;  lines: +6 -46
+removed switch statment
+----------------------------
+revision 1.19
+date: 2017/07/16 10:31:06;  author: abhi;  state: Exp;  lines: +0 -2
+remove printf statment
+----------------------------
+revision 1.18
+date: 2017/07/14 06:34:18;  author: abhi;  state: Exp;  lines: +3 -0
+added print statment
+----------------------------
+revision 1.17
+date: 2017/07/11 17:25:25;  author: abhi;  state: Exp;  lines: +7 -2
+added funnction ptr
+----------------------------
+revision 1.16
+date: 2017/07/11 17:00:54;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.15
+date: 2017/07/11 16:59:12;  author: abhi;  state: Exp;  lines: +24 -10
+CHanged thee array of function ptr to normal function ptr
+----------------------------
+revision 1.14
+date: 2017/07/11 16:23:52;  author: abhi;  state: Exp;  lines: +18 -8
+Used array of function ptr to call all the function used in compression function
+----------------------------
+revision 1.13
+date: 2017/07/07 06:14:44;  author: abhi;  state: Exp;  lines: +1 -1
+Changed the called function name
+----------------------------
+revision 1.12
+date: 2017/07/05 07:20:18;  author: abhi;  state: Exp;  lines: +3 -2
+se
+----------------------------
+revision 1.11
+date: 2017/07/04 16:55:15;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.10
+date: 2017/07/04 16:53:53;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.9
+date: 2017/07/04 16:47:26;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.8
+date: 2017/07/04 16:46:09;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.7
+date: 2017/07/04 16:42:32;  author: abhi;  state: Exp;  lines: +8 -7
+Added lseek so that the filedescriptor will move to 1st position of main array
+----------------------------
+revision 1.6
+date: 2017/07/04 07:08:23;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.5
+date: 2017/07/03 16:51:57;  author: abhi;  state: Exp;  lines: +2 -0
+se
+----------------------------
+revision 1.4
+date: 2017/07/03 16:49:14;  author: abhi;  state: Exp;  lines: +22 -2
+Added new variable to check the length of string
+called Coodelenght function
+used switch statment to call appropriate compression function
+----------------------------
+revision 1.3
+date: 2017/07/03 09:57:16;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.2
+date: 2017/07/03 09:52:37;  author: abhi;  state: Exp;  lines: +5 -34
+created a new function from this function
+----------------------------
+revision 1.1
+date: 2017/06/30 16:18:48;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Create_Master_Array.c,v
+Working file: Create_Master_Array.c
+head: 1.11
+branch:
+locks: strict
+	abhi: 1.11
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 11;	selected revisions: 11
+description:
+A master array is created which will return the unique chracter of file
+----------------------------
+revision 1.11	locked by: abhi;
+date: 2017/07/27 17:32:06;  author: abhi;  state: Exp;  lines: +4 -4
+replace while loop and used for loop added lseek statment to check eof
+----------------------------
+revision 1.10
+date: 2017/07/24 07:52:11;  author: abhi;  state: Exp;  lines: +1 -1
+..
+----------------------------
+revision 1.9
+date: 2017/07/14 09:15:51;  author: abhi;  state: Exp;  lines: +7 -0
+added if statment to check EOL
+added error statment to realloc
+----------------------------
+revision 1.8
+date: 2017/07/07 06:55:02;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.7
+date: 2017/07/07 06:54:24;  author: abhi;  state: Exp;  lines: +9 -7
+changed malloc to realloc
+----------------------------
+revision 1.6
+date: 2017/07/05 07:20:24;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.5
+date: 2017/07/04 16:43:37;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.4
+date: 2017/07/03 10:03:04;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.3
+date: 2017/07/03 09:58:57;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.2
+date: 2017/07/03 09:56:06;  author: abhi;  state: Exp;  lines: +3 -3
+se
+----------------------------
+revision 1.1
+date: 2017/07/03 09:54:05;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression2.c,v
+Working file: Decompression2.c
+head: 1.6
+branch:
+locks: strict
+	abhi: 1.6
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 6;	selected revisions: 6
+description:
+contain print statment only
+----------------------------
+revision 1.6	locked by: abhi;
+date: 2017/08/13 05:24:21;  author: abhi;  state: Exp;  lines: +2 -5
+remove print statment
+----------------------------
+revision 1.5
+date: 2017/07/15 05:47:09;  author: abhi;  state: Exp;  lines: +6 -4
+change if statment
+----------------------------
+revision 1.4
+date: 2017/07/15 05:34:06;  author: abhi;  state: Exp;  lines: +6 -1
+close fd
+----------------------------
+revision 1.3
+date: 2017/07/15 05:22:21;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.2
+date: 2017/07/15 05:19:15;  author: abhi;  state: Exp;  lines: +42 -2
+this function will convert the 2 bit code into its normal form
+df is open in writeonly mode where the actual data will be stored
+in a single while loop 1 value is read from cf and 4 time it is written into DF
+----------------------------
+revision 1.1
+date: 2017/07/07 10:46:01;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression3.c,v
+Working file: Decompression3.c
+head: 1.11
+branch:
+locks: strict
+	abhi: 1.11
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 11;	selected revisions: 11
+description:
+Contain print statment only
+----------------------------
+revision 1.11	locked by: abhi;
+date: 2017/08/13 05:24:26;  author: abhi;  state: Exp;  lines: +2 -10
+remove print statment
+----------------------------
+revision 1.10
+date: 2017/07/15 05:39:33;  author: abhi;  state: Exp;  lines: +4 -4
+se
+----------------------------
+revision 1.9
+date: 2017/07/15 04:44:55;  author: abhi;  state: Exp;  lines: +5 -5
+change EOF
+----------------------------
+revision 1.8
+date: 2017/07/15 04:36:39;  author: abhi;  state: Exp;  lines: +2 -1
+added xor statment
+----------------------------
+revision 1.7
+date: 2017/07/14 09:42:48;  author: abhi;  state: Exp;  lines: +10 -0
+added if statment to check eof
+----------------------------
+revision 1.6
+date: 2017/07/14 09:31:02;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.5
+date: 2017/07/13 17:57:14;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.4
+date: 2017/07/13 17:55:12;  author: abhi;  state: Exp;  lines: +5 -1
+added if statment to check 0x07
+----------------------------
+revision 1.3
+date: 2017/07/13 17:44:05;  author: abhi;  state: Exp;  lines: +8 -8
+added \n to printf statment
+----------------------------
+revision 1.2
+date: 2017/07/13 17:38:52;  author: abhi;  state: Exp;  lines: +80 -2
+this function will decompress the 3 bit code 
+openfile fuction is called to open df in write mode
+while loop is added in which 8 values will be write to dfd
+----------------------------
+revision 1.1
+date: 2017/07/07 10:46:22;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression4.c,v
+Working file: Decompression4.c
+head: 1.24
+branch:
+locks: strict
+	abhi: 1.24
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 24;	selected revisions: 24
+description:
+Reads the compressed file and convert the code into its int index values and print it
+----------------------------
+revision 1.24	locked by: abhi;
+date: 2017/08/13 05:24:31;  author: abhi;  state: Exp;  lines: +0 -2
+remove print statment
+----------------------------
+revision 1.23
+date: 2017/07/15 16:44:58;  author: abhi;  state: Exp;  lines: +2 -3
+changes in printf
+----------------------------
+revision 1.22
+date: 2017/07/14 06:39:04;  author: abhi;  state: Exp;  lines: +2 -0
+added if stamtent to check nibble
+----------------------------
+revision 1.21
+date: 2017/07/12 16:09:26;  author: abhi;  state: Exp;  lines: +7 -7
+se
+----------------------------
+revision 1.20
+date: 2017/07/12 06:58:51;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.19
+date: 2017/07/12 06:57:45;  author: abhi;  state: Exp;  lines: +4 -3
+se
+----------------------------
+revision 1.18
+date: 2017/07/12 06:56:36;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.17
+date: 2017/07/12 06:56:11;  author: abhi;  state: Exp;  lines: +7 -5
+exror
+----------------------------
+revision 1.16
+date: 2017/07/12 06:50:02;  author: abhi;  state: Exp;  lines: +7 -7
+change all data type to unsigned
+----------------------------
+revision 1.15
+date: 2017/07/12 06:41:20;  author: abhi;  state: Exp;  lines: +2 -1
+close file discriptor
+----------------------------
+revision 1.14
+date: 2017/07/12 06:23:16;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.13
+date: 2017/07/12 06:21:02;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.12
+date: 2017/07/12 06:13:34;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.11
+date: 2017/07/12 06:08:33;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.10
+date: 2017/07/12 05:57:47;  author: abhi;  state: Exp;  lines: +2 -2
+*** empty log message ***
+----------------------------
+revision 1.9
+date: 2017/07/11 17:25:36;  author: abhi;  state: Exp;  lines: +4 -1
+Added functon ptr
+----------------------------
+revision 1.8
+date: 2017/07/11 17:05:48;  author: abhi;  state: Exp;  lines: +1 -1
+Changed the char to unsigned char
+----------------------------
+revision 1.7
+date: 2017/07/10 06:19:42;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.6
+date: 2017/07/10 06:18:39;  author: abhi;  state: Exp;  lines: +2 -1
+se
+----------------------------
+revision 1.5
+date: 2017/07/10 06:17:02;  author: abhi;  state: Exp;  lines: +3 -2
+used sprintf
+----------------------------
+revision 1.4
+date: 2017/07/07 10:59:12;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.3
+date: 2017/07/07 10:57:37;  author: abhi;  state: Exp;  lines: +13 -1
+write statment to write into decompress file
+----------------------------
+revision 1.2
+date: 2017/07/07 10:51:28;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.1
+date: 2017/07/07 10:46:38;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression5.c,v
+Working file: Decompression5.c
+head: 1.6
+branch:
+locks: strict
+	abhi: 1.6
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 6;	selected revisions: 6
+description:
+contain print statment only
+----------------------------
+revision 1.6	locked by: abhi;
+date: 2017/08/13 05:24:36;  author: abhi;  state: Exp;  lines: +0 -8
+remove print statment
+----------------------------
+revision 1.5
+date: 2017/07/24 07:52:36;  author: abhi;  state: Exp;  lines: +10 -8
+*** empty log message ***
+----------------------------
+revision 1.4
+date: 2017/07/21 16:03:58;  author: abhi;  state: Exp;  lines: +4 -2
+*** empty log message ***
+----------------------------
+revision 1.3
+date: 2017/07/15 07:35:42;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.2
+date: 2017/07/15 07:32:59;  author: abhi;  state: Exp;  lines: +106 -2
+this function decompresses the 32bit code 
+df is open in write mode 
+in while loop 5 times value is read from cfd and 8 times write into df
+----------------------------
+revision 1.1
+date: 2017/07/07 10:47:31;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression6.c,v
+Working file: Decompression6.c
+head: 1.4
+branch:
+locks: strict
+	abhi: 1.4
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 4;	selected revisions: 4
+description:
+Contain print statment only
+----------------------------
+revision 1.4	locked by: abhi;
+date: 2017/08/13 05:24:40;  author: abhi;  state: Exp;  lines: +0 -4
+remove print statment
+----------------------------
+revision 1.3
+date: 2017/07/15 17:00:14;  author: abhi;  state: Exp;  lines: +4 -0
+se
+..
+----------------------------
+revision 1.2
+date: 2017/07/15 16:45:08;  author: abhi;  state: Exp;  lines: +52 -2
+this function is used to decompress 64bit code
+----------------------------
+revision 1.1
+date: 2017/07/07 10:47:44;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression7.c,v
+Working file: Decompression7.c
+head: 1.8
+branch:
+locks: strict
+	abhi: 1.8
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 8;	selected revisions: 8
+description:
+Contain print statmentonl
+----------------------------
+revision 1.8	locked by: abhi;
+date: 2017/08/13 05:24:45;  author: abhi;  state: Exp;  lines: +0 -8
+remove print statment
+----------------------------
+revision 1.7
+date: 2017/07/16 05:21:17;  author: abhi;  state: Exp;  lines: +18 -18
+se
+----------------------------
+revision 1.6
+date: 2017/07/16 04:57:43;  author: abhi;  state: Exp;  lines: +17 -17
+change data type to long int
+----------------------------
+revision 1.5
+date: 2017/07/16 04:45:26;  author: abhi;  state: Exp;  lines: +2 -1
+close fd
+----------------------------
+revision 1.4
+date: 2017/07/16 04:32:37;  author: abhi;  state: Exp;  lines: +6 -6
+se
+----------------------------
+revision 1.3
+date: 2017/07/16 04:30:40;  author: abhi;  state: Exp;  lines: +7 -7
+correction in if loop to read values
+----------------------------
+revision 1.2
+date: 2017/07/16 04:26:37;  author: abhi;  state: Exp;  lines: +113 -4
+decompress the 128 bit code
+7 times value is read from cf and 8 times written into df in a single while loop
+----------------------------
+revision 1.1
+date: 2017/07/07 10:47:59;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Decompression.c,v
+Working file: Decompression.c
+head: 1.11
+branch:
+locks: strict
+	abhi: 1.11
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 11;	selected revisions: 11
+description:
+It only prints that Decompression is starting
+----------------------------
+revision 1.11	locked by: abhi;
+date: 2017/08/13 05:24:51;  author: abhi;  state: Exp;  lines: +0 -2
+remove print statment
+----------------------------
+revision 1.10
+date: 2017/07/24 07:52:38;  author: abhi;  state: Exp;  lines: +4 -35
+removed switch statment
+----------------------------
+revision 1.9
+date: 2017/07/12 06:41:36;  author: abhi;  state: Exp;  lines: +2 -2
+close file discriptor
+----------------------------
+revision 1.8
+date: 2017/07/11 17:26:17;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.7
+date: 2017/07/11 17:25:45;  author: abhi;  state: Exp;  lines: +29 -10
+Added function ptr
+----------------------------
+revision 1.6
+date: 2017/07/07 11:29:57;  author: abhi;  state: Exp;  lines: +1 -1
+se
+removed warning
+----------------------------
+revision 1.5
+date: 2017/07/07 10:51:03;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.4
+date: 2017/07/07 10:48:14;  author: abhi;  state: Exp;  lines: +25 -3
+calculate the  string length of ekey
+call function codelength
+call decompress function accordingly to the value returned by codelength func
+----------------------------
+revision 1.3
+date: 2017/07/07 06:54:36;  author: abhi;  state: Exp;  lines: +2 -2
+se
+----------------------------
+revision 1.2
+date: 2017/07/07 06:47:48;  author: abhi;  state: Exp;  lines: +13 -1
+opened 2 files.
+called  create master array function
+----------------------------
+revision 1.1
+date: 2017/06/30 16:22:51;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: DisplayMenu.c,v
+Working file: DisplayMenu.c
+head: 1.4
+branch:
+locks: strict
+	abhi: 1.4
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 4;	selected revisions: 4
+description:
+This is the Main menu of the program it display the option of Compression and Decompression
+It also returns the value of the choice
+----------------------------
+revision 1.4	locked by: abhi;
+date: 2017/07/24 07:52:50;  author: abhi;  state: Exp;  lines: +4 -1
+se
+----------------------------
+revision 1.3
+date: 2017/07/16 10:31:28;  author: abhi;  state: Exp;  lines: +5 -5
+Change display menu
+----------------------------
+revision 1.2
+date: 2017/07/11 16:24:34;  author: abhi;  state: Exp;  lines: +6 -6
+Changed the choice user now have to input chracter values for compression and decompression
+----------------------------
+revision 1.1
+date: 2017/06/30 16:23:16;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Findindex.c,v
+Working file: Findindex.c
+head: 1.1
+branch:
+locks: strict
+	abhi: 1.1
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 1;	selected revisions: 1
+description:
+This function will find the Index value in the main array
+----------------------------
+revision 1.1	locked by: abhi;
+date: 2017/07/04 16:44:20;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: mdc.c,v
+Working file: mdc.c
+head: 1.6
+branch:
+locks: strict
+	abhi: 1.6
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 6;	selected revisions: 6
+description:
+Changed the file name to mdc
+----------------------------
+revision 1.6	locked by: abhi;
+date: 2017/07/24 07:52:53;  author: abhi;  state: Exp;  lines: +9 -8
+added array of function ptr
+added compressfuther option
+----------------------------
+revision 1.5
+date: 2017/07/15 05:21:34;  author: abhi;  state: Exp;  lines: +1 -1
+added \n in print statment
+----------------------------
+revision 1.4
+date: 2017/07/11 16:59:37;  author: abhi;  state: Exp;  lines: +1 -1
+changed the return type of display menu
+----------------------------
+revision 1.3
+date: 2017/07/11 16:26:26;  author: abhi;  state: Exp;  lines: +1 -1
+se
+----------------------------
+revision 1.2
+date: 2017/07/11 16:25:16;  author: abhi;  state: Exp;  lines: +14 -7
+used function ptr to call function
+----------------------------
+revision 1.1
+date: 2017/07/11 06:12:34;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================
+
+RCS file: Open_file.c,v
+Working file: Open_file.c
+head: 1.7
+branch:
+locks: strict
+	abhi: 1.7
+access list:
+symbolic names:
+keyword substitution: kv
+total revisions: 7;	selected revisions: 7
+description:
+Created a new function to open file both in rd and wr mode
+----------------------------
+revision 1.7	locked by: abhi;
+date: 2017/08/13 05:27:06;  author: abhi;  state: Exp;  lines: +0 -2
+remove system call
+----------------------------
+revision 1.6
+date: 2017/07/27 17:32:42;  author: abhi;  state: Exp;  lines: +10 -4
+used system call to change filemode
+----------------------------
+revision 1.5
+date: 2017/07/07 12:25:53;  author: abhi;  state: Exp;  lines: +3 -3
+se
+----------------------------
+revision 1.4
+date: 2017/07/07 12:21:37;  author: abhi;  state: Exp;  lines: +3 -3
+se
+----------------------------
+revision 1.3
+date: 2017/07/07 12:20:40;  author: abhi;  state: Exp;  lines: +3 -3
+se
+----------------------------
+revision 1.2
+date: 2017/07/07 06:20:06;  author: abhi;  state: Exp;  lines: +6 -3
+se
+----------------------------
+revision 1.1
+date: 2017/07/07 06:14:59;  author: abhi;  state: Exp;
+Initial revision
+=============================================================================

@@ -1,0 +1,38 @@
+#! /bin/bash
+
+for list in $(ls *.h) $(ls *.c)
+do 
+	ci $list
+done
+
+for list in $(ls *.h,v) $(ls *.c,v)
+do 
+	co $list
+done
+if ( make )
+then
+	read -n1 -p  "Do you want to run program. Enter y/n" resp
+if [ $resp = 'y' ]
+then
+	./mdc
+	read -n1 -p "Enter any key to continue"
+
+else 
+	echo "Quiting program"
+fi
+else
+
+	echo "Compilation error"
+fi
+	read -n1 -p  "Do you want to further edit your program. Enter y/n " resp1
+	echo 
+if [ $resp1 = 'y' ]
+
+then
+	for list in $(ls *.h,v) $(ls *.c,v)
+	do 
+		co -l $list
+	done
+fi
+	
+

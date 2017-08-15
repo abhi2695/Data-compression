@@ -1,0 +1,558 @@
+head	1.22;
+access;
+symbols;
+locks
+	abhi:1.22; strict;
+comment	@ * @;
+
+
+1.22
+date	2017.08.13.05.26.59;	author abhi;	state Exp;
+branches;
+next	1.21;
+
+1.21
+date	2017.08.13.05.24.17;	author abhi;	state Exp;
+branches;
+next	1.20;
+
+1.20
+date	2017.07.24.07.52.00;	author abhi;	state Exp;
+branches;
+next	1.19;
+
+1.19
+date	2017.07.16.10.31.06;	author abhi;	state Exp;
+branches;
+next	1.18;
+
+1.18
+date	2017.07.14.06.34.18;	author abhi;	state Exp;
+branches;
+next	1.17;
+
+1.17
+date	2017.07.11.17.25.25;	author abhi;	state Exp;
+branches;
+next	1.16;
+
+1.16
+date	2017.07.11.17.00.54;	author abhi;	state Exp;
+branches;
+next	1.15;
+
+1.15
+date	2017.07.11.16.59.12;	author abhi;	state Exp;
+branches;
+next	1.14;
+
+1.14
+date	2017.07.11.16.23.52;	author abhi;	state Exp;
+branches;
+next	1.13;
+
+1.13
+date	2017.07.07.06.14.44;	author abhi;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.07.05.07.20.18;	author abhi;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.07.04.16.55.15;	author abhi;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.07.04.16.53.53;	author abhi;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.07.04.16.47.26;	author abhi;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.07.04.16.46.09;	author abhi;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.07.04.16.42.32;	author abhi;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.04.07.08.23;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.03.16.51.57;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.03.16.49.14;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.03.09.57.16;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.03.09.52.37;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.06.30.16.18.48;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@This file is used for compression .It reads the chracter one by one from a file if the chracter is repated then it is not stored in main array
+Basically it checks the uniquness of the chracter
+@
+
+
+1.22
+log
+@remove print statment
+@
+text
+@#include"header.h"
+#include"declaration.h"
+	
+int Compression()
+	{
+	int (*Openfileptr)(char*);
+	Openfileptr=Open_File;
+	int (*Compressptr[])(int,char*)={Compression2,Compression3,Compression4,Compression5,Compression6,Compression7};
+	char*(*Masterarrayptr)(int);
+        Masterarrayptr=Create_Master_Array;
+        int (*Clptr)(int);
+        Clptr=Code_length;
+
+	int i,rfd,ndc,cfd,x;
+	char *Main_array;		
+	rfd= Openfileptr("O_RDONLY");
+		
+		Main_array =  Masterarrayptr(rfd);
+		ndc=strlen(Main_array);
+		x=Clptr(ndc);
+		lseek(rfd,0,SEEK_SET);		
+		x-=2;
+		Compressptr[x](rfd,Main_array);
+	
+	close(rfd);
+	return x;
+		
+	}
+@
+
+
+1.21
+log
+@remove print statment
+@
+text
+@a24 1
+		printf(" %s\n",Main_array);	
+@
+
+
+1.20
+log
+@removed switch statment
+@
+text
+@a16 1
+	printf("File opened succesfully in read mode\n");
+a19 1
+		printf("no of distinct ch are%d\n",ndc);
+a23 1
+		printf("compressed chracters in array are \n");
+@
+
+
+1.19
+log
+@remove printf statment
+@
+text
+@d3 1
+a3 1
+char* Create_Master_Array(int);
+a5 10
+	/*void (*Compressptr[])(void,void)={
+	
+		Open_File,
+		Compression2,	
+		Compression3,	
+		Compression4,	
+		Compression5,	
+		Compression6,	
+		Compression7	
+				    };*/
+d8 1
+a8 12
+	int (*Compressptr2)(int,char*);
+	Compressptr2=Compression2;
+	int (*Compressptr3)(int,char*);
+	Compressptr3=Compression3;
+	int (*Compressptr4)(int,char*);
+	Compressptr4=Compression4;
+	int (*Compressptr5)(int,char*);
+	Compressptr5=Compression5;
+	int (*Compressptr6)(int,char*);
+	Compressptr6=Compression6;
+	int (*Compressptr7)(int,char*);
+	Compressptr7=Compression7;
+d14 1
+a14 1
+	int i,rfd,ndc,x;
+d24 2
+a25 21
+		switch(x)
+		{
+		case 2:
+			Compressptr2(rfd,Main_array);
+			break;
+		case 3:
+			Compressptr3(rfd,Main_array);
+			break;
+		case 4:
+			Compressptr4(rfd,Main_array);
+			break;
+		case 5:
+			Compressptr5(rfd,Main_array);
+			break;
+		case 6:
+			Compressptr6(rfd,Main_array);
+			break;
+		case 7:
+			Compressptr7(rfd,Main_array);
+			break;
+		}
+a28 1
+
+d30 1
+@
+
+
+1.18
+log
+@added print statment
+@
+text
+@a41 2
+		printf("compressed chracters in array are \n");
+		printf(" %s\n",Main_array);	
+@
+
+
+1.17
+log
+@added funnction ptr
+@
+text
+@d42 3
+@
+
+
+1.16
+log
+@se
+@
+text
+@d30 5
+d40 1
+a40 1
+		Main_array =  Create_Master_Array(rfd);
+d42 1
+a42 1
+		x=Code_length(ndc);
+@
+
+
+1.15
+log
+@CHanged thee array of function ptr to normal function ptr
+@
+text
+@d1 1
+a1 1
+include"header.h"
+@
+
+
+1.14
+log
+@Used array of function ptr to call all the function used in compression function
+@
+text
+@d1 1
+a1 1
+# include"header.h"
+d6 1
+a6 1
+	void (*Compressptr[])(void)={
+d15 15
+a29 1
+				    };
+d32 1
+a32 1
+	rfd=Compressptr[0]("O_RDONLY");
+d42 1
+a42 1
+			Compressptr[1](rfd,Main_array);
+d45 1
+a45 1
+			Compressptr[2](rfd,Main_array);
+d48 1
+a48 1
+			Compressptr[3](rfd,Main_array);
+d51 1
+a51 1
+			Compressptr[4](rfd,Main_array);
+d54 1
+a54 1
+			Compressptr[5](rfd,Main_array);
+d57 1
+a57 1
+			Compressptr[6](rfd,Main_array);
+@
+
+
+1.13
+log
+@Changed the called function name
+@
+text
+@d4 1
+a4 1
+	int Compression()
+d6 10
+d18 1
+a18 1
+	rfd=Open_File("O_RDONLY");
+d28 1
+a28 1
+			Compression2(rfd,Main_array);
+d31 1
+a31 1
+			Compression3(rfd,Main_array);
+d34 1
+a34 1
+			Compression4(rfd,Main_array);
+d37 1
+a37 1
+			Compression5(rfd,Main_array);
+d40 1
+a40 1
+			Compression6(rfd,Main_array);
+d43 1
+a43 1
+			Compression7(rfd,Main_array);
+@
+
+
+1.12
+log
+@se
+@
+text
+@d8 1
+a8 1
+	rfd=Open_File();
+@
+
+
+1.11
+log
+@se
+@
+text
+@d3 1
+d7 1
+a7 1
+	char  *Main_array;		
+d11 1
+a11 1
+		Main_array = Create_Master_Array(rfd);
+@
+
+
+1.10
+log
+@se
+@
+text
+@d13 1
+a13 1
+		lseek=(rfd,0,SEEK_SET);		
+@
+
+
+1.9
+log
+@se
+@
+text
+@d13 1
+a13 1
+		lseek = (rfd,0,SEEK_SET);		
+@
+
+
+1.8
+log
+@se
+@
+text
+@d13 1
+a13 1
+		fseek=(rfd,0,SEEK_SET);		
+@
+
+
+1.7
+log
+@Added lseek so that the filedescriptor will move to 1st position of main array
+@
+text
+@d13 1
+a13 1
+		lseek=(rfd,0,SEEK_SET);		
+@
+
+
+1.6
+log
+@se
+@
+text
+@d12 2
+a13 1
+		x=Code_length(ndc);		
+d17 1
+a17 1
+			Compression2();
+d20 1
+a20 1
+			Compression3();
+d23 1
+a23 1
+			Compression4();
+d26 1
+a26 1
+			Compression5();
+d29 1
+a29 1
+			Compression6();
+d32 1
+a32 1
+			Compression7();
+@
+
+
+1.5
+log
+@se
+@
+text
+@d10 1
+a10 1
+		Main_array=Create_Master_Array(rfd);
+@
+
+
+1.4
+log
+@Added new variable to check the length of string
+called Coodelenght function
+used switch statment to call appropriate compression function
+@
+text
+@d14 1
+d33 1
+@
+
+
+1.3
+log
+@se
+@
+text
+@d5 1
+a5 1
+	int i,rfd;
+d11 21
+a31 1
+		
+@
+
+
+1.2
+log
+@created a new function from this function
+@
+text
+@d10 1
+a10 1
+		Main_Array=Create_Master_Array(rfd);
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d5 3
+a7 3
+	int i=0,rfd,j,flag,ret;
+	char ch, *Main_array;		
+	rfd=File_Copy();
+d9 2
+a10 31
+	Main_array= (char *)malloc(sizeof(char)*128);
+	while(1)
+	{
+		ret=read(rfd,&ch,1);
+		if(ret==-1)
+		{
+			perror("read");
+			close(rfd);
+			exit(EXIT_FAILURE);
+		}
+		if(ret==0)
+		{
+		break;
+		}
+		for(j=0;j<=i;j++)
+		{
+			
+		if(*(Main_array+j)==ch)
+			flag=1;
+		}
+			
+	
+			if(flag==0)
+			{
+				*(Main_array+i)=ch;
+				i++;
+			}
+			else 
+			 flag=0;
+		}	 
+			
+@

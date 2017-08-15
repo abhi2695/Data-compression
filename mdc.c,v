@@ -1,0 +1,179 @@
+head	1.6;
+access;
+symbols;
+locks
+	abhi:1.6; strict;
+comment	@ * @;
+
+
+1.6
+date	2017.07.24.07.52.53;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.15.05.21.34;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.11.16.59.37;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.11.16.26.26;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.11.16.25.16;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.11.06.12.34;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@Changed the file name to mdc
+@
+
+
+1.6
+log
+@added array of function ptr
+added compressfuther option
+@
+text
+@# include"header.h"
+#include"declaration.h"
+int main()
+{	
+	char (*Displaymenuptr)();
+	Displaymenuptr=DisplayMenu;
+	int (*Compressfurtherptr)(int);
+	Compressfurtherptr=Compressfurther;
+	int (*Choiceptr[])()= {Compression,Decompression};
+	int choice,x,y,cl,cfd;
+	while(1)
+	{
+		choice=Displaymenuptr();
+
+		{	
+		switch(choice)
+		{
+		case 'c':
+			cl=Choiceptr[0]();
+			break;
+		case 'd':
+			Choiceptr[1]();
+			break;
+		case 'q':
+			exit(EXIT_SUCCESS);
+			break;
+		case 'f':
+			Compressfurtherptr(cl);
+			break;
+		default:
+			printf("Enter a valid no\n");
+			break;
+		}
+
+	}
+ 
+
+}
+
+ return 0;
+}
+
+
+		
+		
+@
+
+
+1.5
+log
+@added \n in print statment
+@
+text
+@d7 4
+a10 5
+	int (*Compressionptr)();
+	Compressionptr=Compression;
+	int (*Decompressionptr)();
+	Decompressionptr=Decompression;
+	int choice,x,y;
+d19 1
+a19 2
+			
+			Compressionptr();
+d22 1
+a22 1
+			Decompressionptr();
+d26 3
+@
+
+
+1.4
+log
+@changed the return type of display menu
+@
+text
+@d30 1
+a30 1
+			printf("Enter a valid no");
+@
+
+
+1.3
+log
+@se
+@
+text
+@d5 1
+a5 1
+	int (*Displaymenuptr)();
+@
+
+
+1.2
+log
+@used function ptr to call function
+@
+text
+@d6 1
+a6 1
+	Displaymenuptr=Display_Menu;
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d4 8
+a11 1
+{	int choice,x,y;
+d14 1
+a14 1
+		choice=DisplayMenu();
+d19 1
+a19 1
+		case 1:
+d21 1
+a21 1
+			Compression();
+d23 2
+a24 2
+		case 2:
+			Decompression();
+d26 1
+a26 1
+		case 3:
+@

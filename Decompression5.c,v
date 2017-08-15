@@ -1,0 +1,258 @@
+head	1.6;
+access;
+symbols;
+locks
+	abhi:1.6; strict;
+comment	@ * @;
+
+
+1.6
+date	2017.08.13.05.24.36;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.24.07.52.36;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.21.16.03.58;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.15.07.35.42;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.15.07.32.59;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.07.10.47.31;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@contain print statment only
+@
+
+
+1.6
+log
+@remove print statment
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int Decompression5(int cfd,char* ekey)
+{
+
+	printf("%s: Begins\n",__func__);
+	int (*Openfileptr)(char*);
+	Openfileptr=Open_File;
+
+	unsigned char c,x; char ch;
+	int dfd,i;
+
+	printf("Enter Decompressed file\n");
+	dfd=Openfileptr("O_WRONLY");
+
+	while(1)
+	{
+		c^=c;
+		x^=x;
+		if(read(cfd,&ch,1)==0)
+			break;
+		c=ch;
+		c>>=3;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);
+		
+		c=ch;
+		c<<=5;
+		c>>=3;
+		x=c;
+		if(read(cfd,&ch,1)==0)
+			break;
+		c^=c;
+		c=ch;
+		c>>=6;
+		c|=x;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);
+
+		c=ch;
+		c<<=2;
+		c>>=3;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);
+
+		c=ch;
+		c<<=7;
+		c>>=3;
+		if(read(cfd,&ch,1)==0)
+			break;
+		x=ch;
+		x>>=4;
+		c|=x;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);	
+		
+		c=ch;
+		c<<=4;
+		c>>=3;
+		if(read(cfd,&ch,1)==0)
+			break;
+		x=ch;
+		x>>=7;
+		c|=x;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);	
+
+		c=ch;
+		c<<=1;
+		c>>=3;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);	
+		
+		c=ch;
+		c<<=6;
+		c>>=3;
+		if(read(cfd,&ch,1)==0)
+			break;
+		x=ch;
+		x>>=5;
+		c|=x;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);	
+		
+		c=ch;
+		c<<=3;
+		c>>=3;
+		if(c==0x1F)
+			break;
+		i=(int)c;
+		write(dfd,(ekey+i),1);	
+	}
+	close(dfd);		
+	printf("%s: Ends\n",__func__);
+
+}
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@a26 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a41 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a49 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a62 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a75 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a83 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a96 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+a104 1
+		printf("value of i is %d line: %d \n",i,__LINE__);
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@d24 2
+d27 1
+a27 1
+		printf("value of i is %d \n",i);
+d43 1
+a43 1
+		printf("value of i is %d \n",i);
+d52 1
+a52 1
+		printf("value of i is %d \n",i);
+d66 1
+a66 1
+		printf("value of i is %d \n",i);
+d80 1
+a80 1
+		printf("value of i is %d \n",i);
+d89 1
+a89 1
+		printf("value of i is %d \n",i);
+d103 1
+a103 1
+		printf("value of i is %d \n",i);
+d112 1
+a112 1
+		printf("value of i is %d \n",i);
+@
+
+
+1.3
+log
+@se
+@
+text
+@d31 1
+d34 3
+a36 2
+		x=ch;
+		x>>=6;
+@
+
+
+1.2
+log
+@this function decompresses the 32bit code 
+df is open in write mode 
+in while loop 5 times value is read from cfd and 8 times write into df
+@
+text
+@d7 2
+a8 2
+	int (*Openfileptr)(char *);
+	Openfileptr=Open_File();
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 3
+a8 1
+	printf("decompression 5 function begins\n");
+d10 103
+a112 1
+	printf("decompression 5 function ends\n");
+@

@@ -1,0 +1,555 @@
+head	1.13;
+access;
+symbols;
+locks
+	abhi:1.13; strict;
+comment	@ * @;
+
+
+1.13
+date	2017.08.13.05.28.39;	author abhi;	state Exp;
+branches;
+next	1.12;
+
+1.12
+date	2017.08.13.05.24.01;	author abhi;	state Exp;
+branches;
+next	1.11;
+
+1.11
+date	2017.07.27.17.47.24;	author abhi;	state Exp;
+branches;
+next	1.10;
+
+1.10
+date	2017.07.24.07.51.53;	author abhi;	state Exp;
+branches;
+next	1.9;
+
+1.9
+date	2017.07.21.16.08.29;	author abhi;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.07.16.10.31.00;	author abhi;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.07.15.15.58.59;	author abhi;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.15.07.53.54;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.15.07.43.20;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.15.07.37.07;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.15.07.26.31;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.04.16.41.56;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.03.16.49.11;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.13
+log
+@remove print statment
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int Compression5(int fd,char* ma)
+{
+	printf("%s: Begins\n",__func__);
+	unsigned char c,byt, ch;
+	int cfd,efd,ret,i;
+	
+	int (*Openfileptr)(char*);
+	Openfileptr=Open_File;
+	int(*Findindexptr)(char,char*);
+	Findindexptr=Find_Index;
+	
+	printf("Enter compressed file \n");
+	cfd=Openfileptr("O_RDWR");
+	printf("Enter Encryption key \n");
+	efd=Openfileptr("O_WRONLY");
+		
+	while(1)
+	{	
+		byt^=byt;
+		c^=c;
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x1F;
+			byt<<=3;
+			write(cfd,&byt,1);
+			break;
+		}
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		byt|=c;
+
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{	
+			byt|=0x07;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x03;
+			byt<<=6;
+			write(cfd,&byt,1);
+			break;
+		}	
+	
+		i=Findindexptr(ch,ma);
+		
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=5;
+		byt|=c;
+		write(cfd,&byt,1);
+
+		byt^=byt;
+		c=ch;
+		c<<=6;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{	
+			c|=0x1F;
+			c<<=1;
+			byt|=c;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=2;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{	
+			byt|=0x01;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x0F;
+			byt<<=4;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=7;
+		byt|=c;
+		write(cfd,&byt,1);
+		
+		byt^=byt;
+		c=ch;
+		c<<=4;
+		byt|=c;
+
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x0F;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x01;
+			byt<<=7;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=4;
+		byt|=c;
+		write(cfd,&byt,1);
+		
+		byt^=byt;
+		c=ch;
+		c<<=7;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			c|=0x1F;
+			c<<=2;
+			byt|=c;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=1;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x03;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x07;
+			byt<<=5;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=6;
+		byt|=c;
+		write(cfd,&byt,1);
+		
+		byt^=byt;
+		c=ch;
+		c<<=5;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x1F;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=3;
+		c>>=3;
+		byt|=c;
+		write(cfd,&byt,1);
+	}
+	write(efd,ma,strlen(ma));
+	
+	close(efd);
+	printf("%s: Ends\n",__func__);
+//	return cfd;
+}
+@
+
+
+1.12
+log
+@remove print statment
+@
+text
+@a127 1
+		printf("Value in ch are %c \n",ch);
+@
+
+
+1.11
+log
+@change eof
+@
+text
+@a23 1
+		printf("Value in ch are %c \n",ch);
+a31 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a37 1
+		printf("Value in ch are %c \n",ch);
+a49 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a63 1
+		printf("Value in ch are %c \n",ch);
+a72 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a79 1
+		printf("Value in ch are %c \n",ch);
+a90 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a103 1
+		printf("Value in ch are %c \n",ch);
+a114 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a137 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a144 1
+		printf("Value in ch are %c \n",ch);
+a155 2
+		printf("value of i is %d \n",i);
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+a168 1
+		printf("Value in ch are %c \n",ch);
+a175 1
+		printf("value of i is %d Line: %d \n",i,__LINE__);
+d187 1
+a187 1
+	return cfd;
+@
+
+
+1.10
+log
+@se
+@
+text
+@d7 1
+a7 1
+	int cfd,efd,i;
+d23 1
+a23 1
+		read(fd,&ch,1);
+d25 1
+a25 1
+		if(ch==10)
+d39 1
+a39 1
+		read(fd,&ch,1);
+d41 1
+a41 1
+		if(ch==10)
+d67 1
+a67 1
+		read(fd,&ch,1);
+d69 1
+a69 1
+		if(ch==10)
+d85 1
+a85 1
+		read(fd,&ch,1);
+d87 1
+a87 1
+		if(ch==10)
+d111 1
+a111 1
+		read(fd,&ch,1);
+d113 1
+a113 1
+		if(ch==10)
+d137 1
+a137 1
+		read(fd,&ch,1);
+d139 1
+a139 1
+		if(ch==10)
+d155 1
+a155 1
+		read(fd,&ch,1);
+d157 1
+a157 1
+		if(ch==10)
+d182 1
+a182 1
+		read(fd,&ch,1);
+d184 1
+a184 1
+		if(ch==10)
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@d7 1
+a7 1
+	int efd,cfd,i;
+d15 1
+a15 1
+	cfd=Openfileptr("O_WRONLY");
+d26 4
+d31 1
+d33 1
+a33 1
+		printf("value of i is %d \n",i);
+d53 1
+a53 1
+		printf("value of i is %d \n",i);
+d71 3
+a73 2
+			byt|=0x1F;
+			byt<<=1;
+d78 1
+a78 1
+		printf("value of i is %d \n",i);
+d98 1
+a98 1
+		printf("value of i is %d \n",i);
+d124 1
+a124 1
+		printf("value of i is %d \n",i);
+d141 3
+a143 2
+			byt|=0x1F;
+			byt<<=2;
+d148 1
+a148 1
+		printf("value of i is %d \n",i);
+d169 1
+d191 1
+a191 1
+		printf("value of i is %d \n",i);
+d200 1
+a200 1
+	close(cfd);
+d203 1
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d6 1
+a6 1
+	unsigned char c,byt; char ch;
+@
+
+
+1.7
+log
+@se
+@
+text
+@a59 1
+		
+@
+
+
+1.6
+log
+@se
+@
+text
+@d40 1
+@
+
+
+1.5
+log
+@se
+@
+text
+@d58 2
+a59 1
+		c<<6;
+d102 1
+a102 1
+		c<<4;
+d128 1
+a128 1
+		c<<7;
+d171 1
+a171 1
+		c<<5;
+@
+
+
+1.4
+log
+@se
+@
+text
+@d24 1
+a24 1
+		printf("Value in ch are %s \n",ch);
+d35 1
+a35 1
+		printf("Value in ch are %s \n",ch);
+d62 1
+a62 1
+		printf("Value in ch are %s \n",ch);
+d79 1
+a79 1
+		printf("Value in ch are %s \n",ch);
+d105 1
+a105 1
+		printf("Value in ch are %s \n",ch);
+d131 1
+a131 1
+		printf("Value in ch are %s \n",ch);
+d148 1
+a148 1
+		printf("Value in ch are %s \n",ch);
+d174 1
+a174 1
+		printf("Value in ch are %s \n",ch);
+@
+
+
+1.3
+log
+@compress the file having more than 15 distinct chracter
+open CF and EF in write mode write the data from file in compressed format in cf and Ekey in Ef
+in a single cycle of while loop 8 times file is read and 5 times file is write
+@
+text
+@a25 1
+		{
+a26 1
+		}	
+@
+
+
+1.2
+log
+@passed two arguments
+@
+text
+@d5 30
+d36 21
+a56 1
+	printf("compression 5 function begins\n");
+d58 47
+a104 1
+	printf("compression 5 function ends\n");
+d106 90
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int Compression5()
+@

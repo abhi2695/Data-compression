@@ -1,0 +1,419 @@
+head	1.7;
+access;
+symbols;
+locks
+	abhi:1.7; strict;
+comment	@ * @;
+
+
+1.7
+date	2017.08.13.05.24.12;	author abhi;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.27.17.31.56;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.24.07.51.57;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.16.09.46.30;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.16.04.24.18;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.04.16.42.24;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.03.16.49.13;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.7
+log
+@remove print statment
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int Compression7(int fd,char* ma)
+{
+	printf("%s:  Begins\n",__func__ );
+	
+	unsigned char c,byt; char ch;
+        int cfd,efd,i,ret;
+
+        int (*Openfileptr)(char*);
+        Openfileptr=Open_File;
+        int (*Findindexptr)(char,char*);
+        Findindexptr=Find_Index;
+
+        printf("opening Compressed file\n");
+        cfd=Openfileptr("O_RDWR");
+        printf("open Encryption file\n");
+        efd=Openfileptr("O_WRONLY");
+
+        while(1)
+        {
+                byt^=byt;
+                c^=c;
+		ret=read(fd,&ch,1);
+		
+		if(ret==0)
+			break;
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		byt|=c;
+
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{	
+			byt|=0x01;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x3F;
+			byt<<=2;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=7;
+		byt|=c;
+		write(cfd,&byt,1);
+		
+		byt^=byt;
+		c=ch;
+		c<<=2;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x03;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x1F;
+			byt<<=3;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=6;
+		byt|=c;
+		write(cfd,&byt,1);
+		
+		byt^=byt;
+		c=ch;
+		c<<=3;
+		byt|=c;
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x07;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x0F;
+			byt<<=4;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=5;
+		byt|=c;
+		write(cfd,&byt,1);
+		
+		byt^=byt;
+		c=ch;
+		c<<=4;
+		byt|=c;
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x0F;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x07;
+			byt<<=5;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=4;
+		byt|=c;
+		write(cfd,&byt,1);
+
+		byt^=byt;
+		c=ch;
+		c<<=5;
+		byt|=c;
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x1F;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x03;
+			byt<<=6;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=3;
+		byt|=c;
+		write(cfd,&byt,1);
+
+		
+		byt^=byt;
+		c=ch;
+		c<<=6;
+		byt|=c;
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x3F;
+			write(cfd,&byt,1);
+			byt^=byt;
+			byt|=0x01;
+			byt<<=7;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=2;
+		byt|=c;
+		write(cfd,&byt,1);
+
+		byt^=byt;
+		c=ch;
+		c<<=7;
+		byt|=c;
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x7F;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		ch=(char)i;
+		c=ch;
+		c<<=1;
+		c>>=1;
+		byt|=c;
+		write(cfd,&byt,1);
+
+	}
+	write(efd,ma,strlen(ma));
+	
+	close(efd);
+	printf("%s:  Ends\n",__func__ );
+}
+@
+
+
+1.6
+log
+@change the eof
+@
+text
+@a25 1
+		printf("value in ch is %c\n",ch);
+a28 1
+		printf("value of i is %d \n",i);
+a34 1
+		printf("value in ch is %c\n",ch);
+a45 1
+		printf("value of i is %d \n",i);
+a58 1
+		printf("value in ch is %c\n",ch);
+a69 1
+		printf("value of i is %d \n",i);
+a81 1
+		printf("value in ch is %c\n",ch);
+a92 1
+		printf("value of i is %d \n",i);
+a104 1
+		printf("value in ch is %c\n",ch);
+a115 1
+		printf("value of i is %d \n",i);
+a127 1
+		printf("value in ch is %c\n",ch);
+a138 1
+		printf("value of i is %d \n",i);
+a151 1
+		printf("value in ch is %c\n",ch);
+a162 1
+		printf("value of i is %d \n",i);
+a174 1
+		printf("value in ch is %c\n",ch);
+a181 1
+		printf("value of i is %d \n",i);
+a193 1
+	return cfd;
+@
+
+
+1.5
+log
+@se
+@
+text
+@d8 1
+a8 1
+        int cfd,efd,i;
+d24 2
+a25 1
+		read(fd,&ch,1);
+d27 1
+a27 1
+		if(ch==10)
+d36 1
+a36 1
+		read(fd,&ch,1);
+d38 1
+a38 1
+		if(ch==10)
+d62 1
+a62 1
+		read(fd,&ch,1);
+d64 1
+a64 1
+		if(ch==10)
+d87 1
+a87 1
+		read(fd,&ch,1);
+d89 1
+a89 1
+		if(ch==10)
+d112 1
+a112 1
+		read(fd,&ch,1);
+d114 1
+a114 1
+		if(ch==10)
+d137 1
+a137 1
+		read(fd,&ch,1);
+d139 1
+a139 1
+		if(ch==10)
+d163 1
+a163 1
+		read(fd,&ch,1);
+d165 1
+a165 1
+		if(ch==10)
+d188 1
+a188 1
+		read(fd,&ch,1);
+d190 1
+a190 1
+		if(ch==10)
+@
+
+
+1.4
+log
+@s
+logical errors
+@
+text
+@d16 1
+a16 1
+        cfd=Openfileptr("O_WRONLY");
+d206 1
+a206 1
+	close(cfd);
+d209 1
+@
+
+
+1.3
+log
+@this function compressses the 128 bit code 
+in a single while loop 8 time value is read from sourcee file and 7 times written into cf
+@
+text
+@d32 1
+a32 1
+		c<<=7;
+d58 1
+a58 1
+		c<<=6;
+d84 1
+a84 1
+		c<<=5;
+d134 1
+a134 1
+		c<<=3;
+d160 1
+a160 1
+		c<<=2;
+d185 1
+a185 1
+		c<<=1;
+@
+
+
+1.2
+log
+@Passed two arguments
+@
+text
+@d5 4
+d10 4
+a13 1
+	printf("compression 7 function begins\n");
+d15 4
+a18 1
+	printf("compression 7 function ends\n");
+d20 189
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int Compression7()
+@

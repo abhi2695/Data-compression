@@ -1,0 +1,43 @@
+head	1.1;
+access;
+symbols;
+locks
+	abhi:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.07.04.16.44.20;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@This function will find the Index value in the main array
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"declaration.h"
+
+int Find_Index(char ch,char *ma)
+{
+	int len,i;
+	len=strlen(ma);
+	for(i=0;i<len;i++)
+	{
+		if(ch==*(ma+i))
+			return i;
+	}
+
+	printf("Fileindex function ends\n");
+	exit(EXIT_FAILURE);
+	
+}	
+		
+@

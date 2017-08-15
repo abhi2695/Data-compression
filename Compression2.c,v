@@ -1,0 +1,270 @@
+head	1.8;
+access;
+symbols;
+locks
+	abhi:1.8; strict;
+comment	@ * @;
+
+
+1.8
+date	2017.08.13.05.23.24;	author abhi;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.07.27.17.46.55;	author abhi;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.24.07.51.41;	author abhi;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.15.05.50.55;	author abhi;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.15.05.33.50;	author abhi;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.15.05.15.35;	author abhi;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.04.16.38.31;	author abhi;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.03.16.48.35;	author abhi;	state Exp;
+branches;
+next	;
+
+
+desc
+@Only prints start and end
+@
+
+
+1.8
+log
+@remove print statment
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int Compression2(int fd,char* ma)
+{
+	printf("Compression 2 begins\n");
+	unsigned char c,byt; char ch;
+        int cfd,efd,i,ret;
+        int (*Openfileptr)(char*);
+        Openfileptr=Open_File;
+        int (*Findindexptr)(char,char*);
+        Findindexptr=Find_Index;
+        printf("opening Compressed file\n");
+        cfd=Openfileptr("O_RDWR");
+        printf("open Encryption file\n");
+        efd=Openfileptr("O_WRONLY");
+	
+	while(1)
+	{
+		byt^=byt;
+		c^=c;
+
+		ret=read(fd,&ch,1);
+		if(ret==0)
+			break;
+		i=Findindexptr(ch,ma);
+		c=ch;
+		c=(char)i;
+		c<<=6;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{	
+			c|=0x0F;
+			c<<=2;
+			byt|=c;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		c=ch;
+		c=(char)i;
+		c<<=6;
+		c>>=2;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x0F;
+			write(cfd,&byt,1);
+			break;
+		}	
+		i=Findindexptr(ch,ma);
+		c=ch;
+		c=(char)i;
+		c<<=6;
+		c>>=4;
+		byt|=c;
+		
+		ret=read(fd,&ch,1);
+		if(ret==0)
+		{
+			byt|=0x03;
+			write(cfd,&byt,1);
+			break;
+		}
+		i=Findindexptr(ch,ma);
+		c=ch;
+		c=(char)i;
+		c<<=6;
+		c>>=6;
+		byt|=c;
+
+		write(cfd,&byt,1);
+
+	}
+
+	write(efd,ma,strlen(ma));
+	close(efd);
+	//return cfd;
+}
+@
+
+
+1.7
+log
+@change the eof
+@
+text
+@a22 1
+		printf("value in ch is %c \n",ch);
+a25 1
+		printf("value in i is %d \n",i);
+a31 1
+		printf("value in ch is %c \n",ch);
+a40 1
+		printf("value in i is %d \n",i);
+a47 1
+		printf("value in ch is %c \n",ch);
+a54 1
+		printf("value in i is %d \n",i);
+a61 1
+		printf("value in ch is %c \n",ch);
+a68 1
+		printf("value in i is %d \n",i);
+@
+
+
+1.6
+log
+@se
+@
+text
+@d7 1
+a7 1
+        int cfd,efd,i;
+d22 1
+a22 1
+		read(fd,&ch,1);
+d24 1
+a24 1
+		if(ch==10)
+d33 1
+a33 1
+		read(fd,&ch,1);
+d35 1
+a35 1
+		if(ch==10)
+d51 1
+a51 1
+		read(fd,&ch,1);
+d53 1
+a53 1
+		if(ch==10)
+d67 1
+a67 1
+		read(fd,&ch,1);
+d69 1
+a69 1
+		if(ch==10)
+@
+
+
+1.5
+log
+@added write statment in if loop
+@
+text
+@d13 1
+a13 1
+        cfd=Openfileptr("O_WRONLY");
+d37 3
+a39 2
+			byt|=0x0F;
+			byt<<2;
+a87 1
+	close(cfd);
+d89 1
+@
+
+
+1.4
+log
+@se
+close file discriptor
+@
+text
+@d39 1
+d55 1
+d71 1
+@
+
+
+1.3
+log
+@This function is used to decompresss to 2 bit code 
+cf and ef are opened in this funnction to write values in it
+in a single while loop 4 values will be read from the file and write into cf
+unique values will be stored in ef
+@
+text
+@d84 2
+@
+
+
+1.2
+log
+@Passed 2 arguments
+@
+text
+@d5 16
+d22 56
+a77 1
+	printf("compression 2 function begins\n");
+d79 1
+a79 1
+	printf("compression 2 function ends\n");
+d81 3
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int Compression2()
+@
